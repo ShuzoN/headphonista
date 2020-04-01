@@ -1,0 +1,17 @@
+version: "3"
+services:
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile.ui
+    volumes:
+      - ./ui:/go/src/app/ui
+    ports:
+      - 127.0.0.1:${UI_PORT}:3000
+    command: make run
+    networks:
+      headphonista:
+
+networks:
+  headphonista:
+
