@@ -2,7 +2,7 @@ import "./App.css";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import React from "react";
 import { Header } from "./View/Header";
-import { Top } from "./View/Top";
+import { Top } from "./View/Top/index";
 import { Container } from "@material-ui/core";
 
 const App = (): JSX.Element => {
@@ -10,7 +10,7 @@ const App = (): JSX.Element => {
     <div className="App">
       <Header />
 
-      <Container maxWidth="sm" disableGutters>
+      <Container maxWidth="md" disableGutters>
         <Router>
           <Switch>
             <Route exact path="/">
