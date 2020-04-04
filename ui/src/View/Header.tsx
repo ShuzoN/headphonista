@@ -18,6 +18,7 @@ import ComputerIcon from "@material-ui/icons/Computer";
 import SportsHandballIcon from "@material-ui/icons/SportsHandball";
 import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
 import BatteryChargingFullIcon from "@material-ui/icons/BatteryChargingFull";
+import { Menus } from "../Contract";
 
 const useStyle = makeStyles((theme) => ({
   logo: {
@@ -49,14 +50,6 @@ export const Header = (): JSX.Element => {
     </AppBar>
   );
 };
-
-enum Menus {
-  Commuting = "通勤通学用",
-  Work = "作業用",
-  Sports = "スポーツ",
-  Iphone = "iPhoneユーザ",
-  LongBattery = "とにかく充電持ちがいい",
-}
 
 function MenuBar(): JSX.Element {
   const [openState, setOpenState] = useState(false);
