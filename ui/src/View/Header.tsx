@@ -33,7 +33,7 @@ export const Header = (): JSX.Element => {
   const c = useStyle();
 
   return (
-    <AppBar position="static" className={c.appBar}>
+    <AppBar position="sticky" className={c.appBar}>
       <Toolbar>
         <MenuBar />
         <div className={c.logoBlock}>
