@@ -10,7 +10,7 @@ const App = (): JSX.Element => {
     <div className="App">
       <Header />
 
-      <Container maxWidth="md" disableGutters>
+      <Container maxWidth="sm" disableGutters>
         <Router>
           <Switch>
             <Route exact path="/">
