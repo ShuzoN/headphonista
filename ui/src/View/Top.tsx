@@ -1,6 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Box, Typography } from "@material-ui/core";
 import { Introduction } from "./Introduction";
+import TrainIcon from "@material-ui/icons/Train";
+// import ComputerIcon from "@material-ui/icons/Computer";
+// import SportsHandballIcon from "@material-ui/icons/SportsHandball";
+// import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
+// import BatteryChargingFullIcon from "@material-ui/icons/BatteryChargingFull";
 
 const useStyle = makeStyles((theme) => ({
   eyecache: {
@@ -30,6 +35,12 @@ export const Top = (): JSX.Element => {
         />
       </div>
       <Introduction />
+      <Box mt={12}>
+        <div id="commuting">
+          <TrainIcon />
+          <Typography>通勤・通学用</Typography>
+        </div>
+      </Box>
     </>
   );
 };
