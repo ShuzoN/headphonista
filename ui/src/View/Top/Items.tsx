@@ -11,12 +11,13 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 
 const useStyle = makeStyles((theme) => ({
   paper: {
+    margin: theme.spacing(2, 1),
     minWidth: "300px",
     minHeight: "300px",
     filter: "drop-shadow(0 1mm 0.1rem Gray)",
   },
   headphoneImage: {
-    margin: theme.spacing(2, 1),
+    margin: theme.spacing(4, 1, 1),
     maxWidth: "90%",
     maxHeight: "150px",
     border: "1px solid LightGray",
@@ -24,6 +25,7 @@ const useStyle = makeStyles((theme) => ({
   },
   price: {
     margin: theme.spacing(1, 4),
+    color: "gray",
   },
   buyNowBtn: {
     margin: theme.spacing(1, 4),
@@ -43,10 +45,10 @@ const useStyle = makeStyles((theme) => ({
     verticalAlign: "middle",
   },
   amazonBestSallerBlock: {
-    position: "relative",
+    position: "absolute",
     zIndex: 100,
-    top: "18px",
-    left: "-33%",
+    top: "-10px",
+    left: "-5px",
     filter: "drop-shadow(0 1.5mm 0.1rem LightGray)",
   },
   amazonBestSaller: {
@@ -57,12 +59,14 @@ const useStyle = makeStyles((theme) => ({
 export const Items = (): JSX.Element => {
   const items: Item[] = [
     {
+      name: "ag TWS02R",
       url: "https://amzn.to/2X9Bce8",
       imgPath: "/img/ag.jpg",
       price: 4000,
       salesPoints: ["msg1", "msg2", "msg3"],
     },
     {
+      name: "SONY MDR-M1ST",
       url: "https://amzn.to/2UJHkbq",
       imgPath: "/img/sony.png",
       price: 30000,
@@ -72,13 +76,7 @@ export const Items = (): JSX.Element => {
 
   return (
     <Box mt={3}>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        spacing={2}
-      >
+      <Grid container direction="row" justify="center" alignItems="center">
         <Grid item xs={11} sm={6}>
           <ItemView {...items[0]} />
         </Grid>
@@ -91,6 +89,7 @@ export const Items = (): JSX.Element => {
 };
 
 interface Item {
+  name: string;
   url: string;
   imgPath: string;
   price: number;
@@ -100,7 +99,7 @@ interface Item {
 const ItemView = (props: Item): JSX.Element => {
   const c = useStyle();
   return (
-    <div>
+    <Paper className={c.paper}>
       <div className={c.amazonBestSallerBlock}>
         <img
           src={"/img/amazon_best_saller.png"}
@@ -108,32 +107,30 @@ const ItemView = (props: Item): JSX.Element => {
           className={c.amazonBestSaller}
         />
       </div>
-
-      <Paper className={c.paper}>
-        <Grid item xs={6} className={c.itemImage}>
-          <img
-            src={props.imgPath}
-            alt="headphoneImage"
-            className={c.headphoneImage}
-          />
-        </Grid>
-        <Grid item xs={6} className={c.itemImage}>
-          <Typography variant="body1" className={c.price}>
-            {`~¥${props.price}`}
-          </Typography>
-          <BuyNowButton url={props.url} />
-        </Grid>
-        <Grid item xs={12} className={c.salesPoint}>
-          {props.salesPoints.map((v) => {
-            return (
-              <Typography variant="body2" key={v}>
-                {v}
-              </Typography>
-            );
-          })}
-        </Grid>
-      </Paper>
-    </div>
+      <Grid item xs={6} className={c.itemImage}>
+        <img
+          src={props.imgPath}
+          alt="headphoneImage"
+          className={c.headphoneImage}
+        />
+      </Grid>
+      <Grid item xs={6} className={c.itemImage}>
+        <Typography variant="subtitle1">{props.name}</Typography>
+        <Typography variant="h5" className={c.price}>
+          {`~¥${props.price}`}
+        </Typography>
+        <BuyNowButton url={props.url} />
+      </Grid>
+      <Grid item xs={12} className={c.salesPoint}>
+        {props.salesPoints.map((v) => {
+          return (
+            <Typography variant="body1" key={v}>
+              {v}
+            </Typography>
+          );
+        })}
+      </Grid>
+    </Paper>
   );
 };
 
