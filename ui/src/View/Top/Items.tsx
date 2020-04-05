@@ -28,7 +28,7 @@ const useStyle = makeStyles((theme) => ({
     color: "gray",
   },
   buyNowBtn: {
-    margin: theme.spacing(1, 4),
+    margin: theme.spacing(1, 3),
     color: "#fff",
     background: "#EC9C01",
   },
@@ -78,10 +78,10 @@ export const Items = (): JSX.Element => {
     <Box mt={3}>
       <Grid container direction="row" justify="center" alignItems="center">
         <Grid item xs={11} sm={6}>
-          <ItemView {...items[0]} />
+          <AmazonItemView {...items[0]} />
         </Grid>
         <Grid item xs={11} sm={6}>
-          <ItemView {...items[1]} />
+          <ShuzonItemView {...items[1]} />
         </Grid>
       </Grid>
     </Box>
@@ -96,13 +96,51 @@ interface Item {
   salesPoints: string[];
 }
 
-const ItemView = (props: Item): JSX.Element => {
+const AmazonItemView = (props: Item): JSX.Element => {
   const c = useStyle();
   return (
     <Paper className={c.paper}>
       <div className={c.amazonBestSallerBlock}>
         <img
           src={"/img/amazon_best_saller.png"}
+          alt="amazon-best-saller"
+          className={c.amazonBestSaller}
+        />
+      </div>
+      <Grid item xs={6} className={c.itemImage}>
+        <img
+          src={props.imgPath}
+          alt="headphoneImage"
+          className={c.headphoneImage}
+        />
+      </Grid>
+      <Grid item xs={6} className={c.itemImage}>
+        <Typography variant="subtitle1">{props.name}</Typography>
+        <Typography variant="h5" className={c.price}>
+          {`~¥${props.price}`}
+        </Typography>
+        <BuyNowButton url={props.url} />
+      </Grid>
+      <Grid item xs={12} className={c.salesPoint}>
+        {props.salesPoints.map((v) => {
+          return (
+            <Typography variant="body1" key={v}>
+              {v}
+            </Typography>
+          );
+        })}
+      </Grid>
+    </Paper>
+  );
+};
+
+const ShuzonItemView = (props: Item): JSX.Element => {
+  const c = useStyle();
+  return (
+    <Paper className={c.paper}>
+      <div className={c.amazonBestSallerBlock}>
+        <img
+          src={"/img/shuzon_choise.png"}
           alt="amazon-best-saller"
           className={c.amazonBestSaller}
         />
