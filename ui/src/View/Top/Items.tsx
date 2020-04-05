@@ -30,7 +30,7 @@ const useStyle = makeStyles((theme) => ({
   buyNowBtn: {
     margin: theme.spacing(1, 3),
     color: "#fff",
-    background: "#EC9C01",
+    background: "#FFB21E",
   },
   buyNowBtnContent: {
     display: "inline",
