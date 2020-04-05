@@ -16,31 +16,31 @@ const useStyle = makeStyles((theme) => ({
     filter: "drop-shadow(0 1mm 0.1rem Gray)",
   },
   headphoneImage: {
-    margin: theme.spacing(1, 1),
+    margin: theme.spacing(2, 1),
     maxWidth: "90%",
     maxHeight: "150px",
     border: "1px solid LightGray",
     borderRadius: "40px",
   },
   price: {
-    display: "inline",
     margin: theme.spacing(1, 4),
   },
   buyNowBtn: {
-    display: "inline",
     margin: theme.spacing(1, 4),
     color: "#fff",
     background: "#EC9C01",
   },
   buyNowBtnContent: {
     display: "inline",
-    margin: theme.spacing(0, 0.5),
-    pading: theme.spacing(0, 1),
     verticalAlign: "middle",
   },
   salesPoint: {
     margin: theme.spacing(1, 0),
     padding: theme.spacing(1, 0),
+  },
+  itemImage: {
+    display: "inline-block",
+    verticalAlign: "middle",
   },
 }));
 
@@ -53,9 +53,9 @@ export const Items = (): JSX.Element => {
       salesPoints: ["msg1", "msg2", "msg3"],
     },
     {
-      url: "https://amzn.to/2Rc9iKK",
-      imgPath: "/img/aviot.png",
-      price: 9000,
+      url: "https://amzn.to/2UJHkbq",
+      imgPath: "/img/sony.png",
+      price: 30000,
       salesPoints: ["msg1", "msg2", "msg3"],
     },
   ];
@@ -91,14 +91,14 @@ const ItemView = (props: Item): JSX.Element => {
   const c = useStyle();
   return (
     <Paper className={c.paper}>
-      <Grid item xs={12}>
+      <Grid item xs={6} className={c.itemImage}>
         <img
           src={props.imgPath}
           alt="headphoneImage"
           className={c.headphoneImage}
         />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={6} className={c.itemImage}>
         <Typography variant="body1" className={c.price}>
           {`~¥${props.price}`}
         </Typography>
