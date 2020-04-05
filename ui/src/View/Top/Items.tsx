@@ -45,14 +45,15 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 export const Items = (): JSX.Element => {
-  const c = useStyle();
   const items: Item[] = [
     {
-      imgPath: "/img/ag.png",
+      url: "https://amzn.to/2X9Bce8",
+      imgPath: "/img/ag.jpg",
       price: 4000,
       salesPoints: ["msg1", "msg2", "msg3"],
     },
     {
+      url: "https://amzn.to/2Rc9iKK",
       imgPath: "/img/aviot.png",
       price: 9000,
       salesPoints: ["msg1", "msg2", "msg3"],
@@ -80,6 +81,7 @@ export const Items = (): JSX.Element => {
 };
 
 interface Item {
+  url: string;
   imgPath: string;
   price: number;
   salesPoints: string[];
@@ -100,7 +102,7 @@ const ItemView = (props: Item): JSX.Element => {
         <Typography variant="body1" className={c.price}>
           {`~¥${props.price}`}
         </Typography>
-        <BuyNowButton />
+        <BuyNowButton url={props.url} />
       </Grid>
       <Grid item xs={12} className={c.salesPoint}>
         {props.salesPoints.map((v) => {
@@ -115,10 +117,10 @@ const ItemView = (props: Item): JSX.Element => {
   );
 };
 
-const BuyNowButton = (): JSX.Element => {
+const BuyNowButton = (props: { url: string }): JSX.Element => {
   const c = useStyle();
   return (
-    <Button className={c.buyNowBtn}>
+    <Button className={c.buyNowBtn} href={props.url}>
       <ShoppingCartOutlinedIcon className={c.buyNowBtnContent} />
       <Typography variant="caption" className={c.buyNowBtnContent}>
         BUY NOW
