@@ -42,6 +42,16 @@ const useStyle = makeStyles((theme) => ({
     display: "inline-block",
     verticalAlign: "middle",
   },
+  amazonBestSallerBlock: {
+    position: "relative",
+    zIndex: 100,
+    top: "18px",
+    left: "-33%",
+    filter: "drop-shadow(0 1.5mm 0.1rem LightGray)",
+  },
+  amazonBestSaller: {
+    height: "37px",
+  },
 }));
 
 export const Items = (): JSX.Element => {
@@ -67,7 +77,7 @@ export const Items = (): JSX.Element => {
         direction="row"
         justify="center"
         alignItems="center"
-        spacing={1}
+        spacing={2}
       >
         <Grid item xs={11} sm={6}>
           <ItemView {...items[0]} />
@@ -90,30 +100,40 @@ interface Item {
 const ItemView = (props: Item): JSX.Element => {
   const c = useStyle();
   return (
-    <Paper className={c.paper}>
-      <Grid item xs={6} className={c.itemImage}>
+    <div>
+      <div className={c.amazonBestSallerBlock}>
         <img
-          src={props.imgPath}
-          alt="headphoneImage"
-          className={c.headphoneImage}
+          src={"/img/amazon_best_saller.png"}
+          alt="amazon-best-saller"
+          className={c.amazonBestSaller}
         />
-      </Grid>
-      <Grid item xs={6} className={c.itemImage}>
-        <Typography variant="body1" className={c.price}>
-          {`~¥${props.price}`}
-        </Typography>
-        <BuyNowButton url={props.url} />
-      </Grid>
-      <Grid item xs={12} className={c.salesPoint}>
-        {props.salesPoints.map((v) => {
-          return (
-            <Typography variant="body2" key={v}>
-              {v}
-            </Typography>
-          );
-        })}
-      </Grid>
-    </Paper>
+      </div>
+
+      <Paper className={c.paper}>
+        <Grid item xs={6} className={c.itemImage}>
+          <img
+            src={props.imgPath}
+            alt="headphoneImage"
+            className={c.headphoneImage}
+          />
+        </Grid>
+        <Grid item xs={6} className={c.itemImage}>
+          <Typography variant="body1" className={c.price}>
+            {`~¥${props.price}`}
+          </Typography>
+          <BuyNowButton url={props.url} />
+        </Grid>
+        <Grid item xs={12} className={c.salesPoint}>
+          {props.salesPoints.map((v) => {
+            return (
+              <Typography variant="body2" key={v}>
+                {v}
+              </Typography>
+            );
+          })}
+        </Grid>
+      </Paper>
+    </div>
   );
 };
 
