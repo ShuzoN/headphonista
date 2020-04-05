@@ -12,13 +12,13 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 const useStyle = makeStyles((theme) => ({
   paper: {
     minWidth: "300px",
-    minHeight: "350px",
+    minHeight: "300px",
     filter: "drop-shadow(0 1mm 0.1rem Gray)",
   },
   headphoneImage: {
     margin: theme.spacing(1, 1),
     maxWidth: "90%",
-    maxHeight: "200px",
+    maxHeight: "150px",
     border: "1px solid LightGray",
     borderRadius: "40px",
   },
@@ -46,6 +46,19 @@ const useStyle = makeStyles((theme) => ({
 
 export const Items = (): JSX.Element => {
   const c = useStyle();
+  const items: Item[] = [
+    {
+      imgPath: "/img/ag.png",
+      price: 4000,
+      salesPoints: ["msg1", "msg2", "msg3"],
+    },
+    {
+      imgPath: "/img/aviot.png",
+      price: 9000,
+      salesPoints: ["msg1", "msg2", "msg3"],
+    },
+  ];
+
   return (
     <Box mt={3}>
       <Grid
@@ -56,40 +69,60 @@ export const Items = (): JSX.Element => {
         spacing={1}
       >
         <Grid item xs={11} sm={6}>
-          <Paper className={c.paper}>hoge</Paper>
+          <ItemView {...items[0]} />
         </Grid>
         <Grid item xs={11} sm={6}>
-          <Paper className={c.paper}>
-            <Grid item xs={12}>
-              <img
-                src="/img/aviot.png"
-                alt="headphoneImage"
-                className={c.headphoneImage}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="body1" className={c.price}>
-                ~¥3000
-              </Typography>
-              <Button className={c.buyNowBtn}>
-                <ShoppingCartOutlinedIcon className={c.buyNowBtnContent} />
-                <Typography variant="caption" className={c.buyNowBtnContent}>
-                  BUY NOW
-                </Typography>
-              </Button>
-            </Grid>
-            <Grid item xs={12} className={c.salesPoint}>
-              {["message", "m2", "m3"].map((v) => {
-                return (
-                  <Typography variant="body2" key={v}>
-                    {v}
-                  </Typography>
-                );
-              })}
-            </Grid>
-          </Paper>
+          <ItemView {...items[1]} />
         </Grid>
       </Grid>
     </Box>
+  );
+};
+
+interface Item {
+  imgPath: string;
+  price: number;
+  salesPoints: string[];
+}
+
+const ItemView = (props: Item): JSX.Element => {
+  const c = useStyle();
+  return (
+    <Paper className={c.paper}>
+      <Grid item xs={12}>
+        <img
+          src={props.imgPath}
+          alt="headphoneImage"
+          className={c.headphoneImage}
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <Typography variant="body1" className={c.price}>
+          {`~¥${props.price}`}
+        </Typography>
+        <BuyNowButton />
+      </Grid>
+      <Grid item xs={12} className={c.salesPoint}>
+        {props.salesPoints.map((v) => {
+          return (
+            <Typography variant="body2" key={v}>
+              {v}
+            </Typography>
+          );
+        })}
+      </Grid>
+    </Paper>
+  );
+};
+
+const BuyNowButton = (): JSX.Element => {
+  const c = useStyle();
+  return (
+    <Button className={c.buyNowBtn}>
+      <ShoppingCartOutlinedIcon className={c.buyNowBtnContent} />
+      <Typography variant="caption" className={c.buyNowBtnContent}>
+        BUY NOW
+      </Typography>
+    </Button>
   );
 };
