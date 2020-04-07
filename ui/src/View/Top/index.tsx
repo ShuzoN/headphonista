@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Box, Typography, Card } from "@material-ui/core";
+import { makeStyles, Box, Typography } from "@material-ui/core";
 import { Introduction } from "./Introduction";
 import TrainIcon from "@material-ui/icons/Train";
 import ComputerIcon from "@material-ui/icons/Computer";
@@ -8,6 +8,7 @@ import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
 import BatteryChargingFullIcon from "@material-ui/icons/BatteryChargingFull";
 import { Menus } from "../../Contract";
 import { Items } from "./Items";
+import { scrollRef } from "../../lib/ScrollRef";
 
 const useStyle = makeStyles((theme) => ({
   eyecache: {
@@ -54,14 +55,14 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
     switch (categoryName) {
       case Menus.Commuting:
         return (
-          <div id="commuting">
+          <div id="commuting" ref={scrollRef()}>
             <TrainIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
         );
       case Menus.Work:
         return (
-          <div id="work">
+          <div id="work" ref={scrollRef()}>
             <ComputerIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -69,7 +70,7 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
       case Menus.Sports:
         return (
-          <div id="sports">
+          <div id="sports" ref={scrollRef()}>
             <SportsHandballIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -77,7 +78,7 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
       case Menus.Iphone:
         return (
-          <div id="iphone">
+          <div id="iphone" ref={scrollRef()}>
             <PhoneIphoneIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -85,7 +86,7 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
       case Menus.LongBattery:
         return (
-          <div id="long-battery">
+          <div id="long-battery" ref={scrollRef()}>
             <BatteryChargingFullIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
