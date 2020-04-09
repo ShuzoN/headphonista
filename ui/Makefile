@@ -10,7 +10,7 @@ install:
 build:
 	$(YARN) build
 
-run:
+run: install
 	$(YARN) start
 
 
