@@ -8,6 +8,7 @@ import {
   Button,
 } from "@material-ui/core";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import { Item } from "./Contract";
 
 const useStyle = makeStyles((theme) => ({
   paper: {
@@ -56,24 +57,7 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-export const Items = (): JSX.Element => {
-  const items: Item[] = [
-    {
-      name: "ag TWS02R",
-      url: "https://amzn.to/2X9Bce8",
-      imgPath: "/img/ag.jpg",
-      price: 4000,
-      salesPoints: ["msg1", "msg2", "msg3"],
-    },
-    {
-      name: "SONY MDR-M1ST",
-      url: "https://amzn.to/2UJHkbq",
-      imgPath: "/img/sony.png",
-      price: 30000,
-      salesPoints: ["msg1", "msg2", "msg3"],
-    },
-  ];
-
+export const Items = (items: Item[]): JSX.Element => {
   return (
     <Box mt={3}>
       <Grid container direction="row" justify="center" alignItems="center">
@@ -87,14 +71,6 @@ export const Items = (): JSX.Element => {
     </Box>
   );
 };
-
-interface Item {
-  name: string;
-  url: string;
-  imgPath: string;
-  price: number;
-  salesPoints: string[];
-}
 
 const AmazonItemView = (props: Item): JSX.Element => {
   const c = useStyle();

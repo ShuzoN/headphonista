@@ -9,6 +9,7 @@ import BatteryChargingFullIcon from "@material-ui/icons/BatteryChargingFull";
 import { Menus } from "../../Contract";
 import { Items } from "./Items";
 import { scrollRef } from "../../lib/ScrollRef";
+import { Item } from "./Contract";
 
 const useStyle = makeStyles((theme) => ({
   eyecache: {
@@ -43,8 +44,16 @@ export const Top = (): JSX.Element => {
         />
       </div>
       <Introduction />
-      <CategoryTitle categoryName={Menus.Commuting} />
-      <Items />
+      <CategoryItems categoryName={Menus.Commuting} items={commutingItems} />
+    </>
+  );
+};
+
+const CategoryItems = (props: { categoryName: string; items: Item[] }) => {
+  return (
+    <>
+      <CategoryTitle categoryName={props.categoryName} />
+      <Items {...props.items} />
     </>
   );
 };
@@ -99,3 +108,20 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
   return <Box mt={12}>{chooseTitleWithIcon(props.categoryName)}</Box>;
 };
+
+const commutingItems: Item[] = [
+  {
+    name: "ag TWS02R",
+    url: "https://amzn.to/2X9Bce8",
+    imgPath: "/img/ag.jpg",
+    price: 4000,
+    salesPoints: ["msg1", "msg2", "msg3"],
+  },
+  {
+    name: "SONY MDR-M1ST",
+    url: "https://amzn.to/2UJHkbq",
+    imgPath: "/img/sony.png",
+    price: 30000,
+    salesPoints: ["msg1", "msg2", "msg3"],
+  },
+];
