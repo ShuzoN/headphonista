@@ -24,6 +24,9 @@ const useStyle = makeStyles((theme) => ({
   introductionMessage: {
     lineHeight: "3.5",
   },
+  category: {
+    padding: theme.spacing(3, 0),
+  },
   categoryName: {
     display: "inline",
     verticalAlign: "middle",
@@ -68,14 +71,14 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
     switch (categoryName) {
       case Menus.Commuting:
         return (
-          <div id="commuting" ref={scrollRef()}>
+          <div id="commuting" ref={scrollRef()} className={c.category}>
             <TrainIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
         );
       case Menus.Work:
         return (
-          <div id="work" ref={scrollRef()}>
+          <div id="work" ref={scrollRef()} className={c.category}>
             <ComputerIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -83,7 +86,7 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
       case Menus.Sports:
         return (
-          <div id="sports" ref={scrollRef()}>
+          <div id="sports" ref={scrollRef()} className={c.category}>
             <SportsHandballIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -91,7 +94,7 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
       case Menus.Iphone:
         return (
-          <div id="iphone" ref={scrollRef()}>
+          <div id="iphone" ref={scrollRef()} className={c.category}>
             <PhoneIphoneIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -99,7 +102,7 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
       case Menus.LongBattery:
         return (
-          <div id="long-battery" ref={scrollRef()}>
+          <div id="long-battery" ref={scrollRef()} className={c.category}>
             <BatteryChargingFullIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
