@@ -60,42 +60,53 @@ const CategoryItems = (props: { categoryName: string; items: Item[] }) => {
 
 const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
   const c = useStyle();
-
-  const categoryNameView = (id: string, categoryName: string) => {
-    return (
-      <>
-        <Box mt={12}>
-          <div id={id} ref={scrollRef()}>
+  const chooseTitleWithIcon = (categoryName: string) => {
+    switch (categoryName) {
+      case Menus.Commuting:
+        return (
+          <div id="commuting" ref={scrollRef()}>
             <TrainIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
-        </Box>
-      </>
-    );
-  };
-
-  const chooseTitle = (categoryName: string) => {
-    switch (categoryName) {
-      case Menus.Commuting:
-        return categoryNameView("commuting", categoryName);
+        );
       case Menus.Work:
-        return categoryNameView("work", categoryName);
+        return (
+          <div id="work" ref={scrollRef()}>
+            <ComputerIcon className={c.categoryName} />
+            <Typography className={c.categoryName}>{categoryName}</Typography>
+          </div>
+        );
 
       case Menus.Sports:
-        return categoryNameView("sports", categoryName);
+        return (
+          <div id="sports" ref={scrollRef()}>
+            <SportsHandballIcon className={c.categoryName} />
+            <Typography className={c.categoryName}>{categoryName}</Typography>
+          </div>
+        );
 
       case Menus.Iphone:
-        return categoryNameView("iphone", categoryName);
+        return (
+          <div id="iphone" ref={scrollRef()}>
+            <PhoneIphoneIcon className={c.categoryName} />
+            <Typography className={c.categoryName}>{categoryName}</Typography>
+          </div>
+        );
 
       case Menus.LongBattery:
-        return categoryNameView("long-battery", categoryName);
+        return (
+          <div id="long-battery" ref={scrollRef()}>
+            <BatteryChargingFullIcon className={c.categoryName} />
+            <Typography className={c.categoryName}>{categoryName}</Typography>
+          </div>
+        );
 
       default:
         return <></>;
     }
   };
 
-  return <>{chooseTitle(props.categoryName)}</>;
+  return <Box mt={12}>{chooseTitleWithIcon(props.categoryName)}</Box>;
 };
 
 const commutingItems: Item[] = [
