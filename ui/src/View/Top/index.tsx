@@ -51,51 +51,40 @@ export const Top = (): JSX.Element => {
 
 const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
   const c = useStyle();
-  const chooseTitleWithIcon = (categoryName: string) => {
-    switch (categoryName) {
-      case Menus.Commuting:
-        return (
-          <div id="commuting" ref={scrollRef()}>
+
+  const categoryNameView = (id: string, categoryName: string) => {
+    return (
+      <>
+        <Box mt={12}>
+          <div id={id} ref={scrollRef()}>
             <TrainIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
-        );
+        </Box>
+      </>
+    );
+  };
+
+  const chooseTitle = (categoryName: string) => {
+    switch (categoryName) {
+      case Menus.Commuting:
+        return categoryNameView("commuting", categoryName);
       case Menus.Work:
-        return (
-          <div id="work" ref={scrollRef()}>
-            <ComputerIcon className={c.categoryName} />
-            <Typography className={c.categoryName}>{categoryName}</Typography>
-          </div>
-        );
+        return categoryNameView("work", categoryName);
 
       case Menus.Sports:
-        return (
-          <div id="sports" ref={scrollRef()}>
-            <SportsHandballIcon className={c.categoryName} />
-            <Typography className={c.categoryName}>{categoryName}</Typography>
-          </div>
-        );
+        return categoryNameView("sports", categoryName);
 
       case Menus.Iphone:
-        return (
-          <div id="iphone" ref={scrollRef()}>
-            <PhoneIphoneIcon className={c.categoryName} />
-            <Typography className={c.categoryName}>{categoryName}</Typography>
-          </div>
-        );
+        return categoryNameView("iphone", categoryName);
 
       case Menus.LongBattery:
-        return (
-          <div id="long-battery" ref={scrollRef()}>
-            <BatteryChargingFullIcon className={c.categoryName} />
-            <Typography className={c.categoryName}>{categoryName}</Typography>
-          </div>
-        );
+        return categoryNameView("long-battery", categoryName);
 
       default:
         return <></>;
     }
   };
 
-  return <Box mt={12}>{chooseTitleWithIcon(props.categoryName)}</Box>;
+  return <>{chooseTitle(props.categoryName)}</>;
 };
