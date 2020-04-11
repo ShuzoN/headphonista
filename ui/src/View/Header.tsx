@@ -6,6 +6,8 @@ import {
   Button,
   makeStyles,
   SwipeableDrawer,
+  Slide,
+  useScrollTrigger,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { HeaderMenu } from "./HeaderMenu";
@@ -20,24 +22,38 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
+// https://material-ui.com/components/app-bar/#hide-app-bar
+function HideOnScroll(props: any) {
+  const { children, window } = props;
+  const trigger = useScrollTrigger({ target: window ? window() : undefined });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
 export const Header = (): JSX.Element => {
   const c = useStyle();
 
   return (
-    <AppBar position="sticky" className={c.appBar}>
-      <Toolbar>
-        <MenuBar />
-        <div className={c.logoBlock}>
-          <Button size="large" variant="text" color="inherit" href="/">
-            <img
-              src="/img/headphonista_logo.png"
-              alt="Logo"
-              className={c.logo}
-            />
-          </Button>
-        </div>
-      </Toolbar>
-    </AppBar>
+    <HideOnScroll>
+      <AppBar position="sticky" className={c.appBar}>
+        <Toolbar>
+          <MenuBar />
+          <div className={c.logoBlock}>
+            <Button size="large" variant="text" color="inherit" href="/">
+              <img
+                src="/img/headphonista_logo.png"
+                alt="Logo"
+                className={c.logo}
+              />
+            </Button>
+          </div>
+        </Toolbar>
+      </AppBar>
+    </HideOnScroll>
   );
 };
 

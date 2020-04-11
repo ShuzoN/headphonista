@@ -9,6 +9,7 @@ import BatteryChargingFullIcon from "@material-ui/icons/BatteryChargingFull";
 import { Menus } from "../../Contract";
 import { Items } from "./Items";
 import { scrollRef } from "../../lib/ScrollRef";
+import { Item } from "./Contract";
 
 const useStyle = makeStyles((theme) => ({
   eyecache: {
@@ -22,6 +23,9 @@ const useStyle = makeStyles((theme) => ({
   },
   introductionMessage: {
     lineHeight: "3.5",
+  },
+  category: {
+    padding: theme.spacing(3, 0),
   },
   categoryName: {
     display: "inline",
@@ -43,8 +47,20 @@ export const Top = (): JSX.Element => {
         />
       </div>
       <Introduction />
-      <CategoryTitle categoryName={Menus.Commuting} />
-      <Items />
+      <CategoryItems categoryName={Menus.Commuting} items={commutingItems} />
+      <CategoryItems categoryName={Menus.Work} items={commutingItems} />
+      <CategoryItems categoryName={Menus.Sports} items={commutingItems} />
+      <CategoryItems categoryName={Menus.Iphone} items={commutingItems} />
+      <CategoryItems categoryName={Menus.LongBattery} items={commutingItems} />
+    </>
+  );
+};
+
+const CategoryItems = (props: { categoryName: string; items: Item[] }) => {
+  return (
+    <>
+      <CategoryTitle categoryName={props.categoryName} />
+      <Items {...props.items} />
     </>
   );
 };
@@ -55,14 +71,14 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
     switch (categoryName) {
       case Menus.Commuting:
         return (
-          <div id="commuting" ref={scrollRef()}>
+          <div id="commuting" ref={scrollRef()} className={c.category}>
             <TrainIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
         );
       case Menus.Work:
         return (
-          <div id="work" ref={scrollRef()}>
+          <div id="work" ref={scrollRef()} className={c.category}>
             <ComputerIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -70,7 +86,7 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
       case Menus.Sports:
         return (
-          <div id="sports" ref={scrollRef()}>
+          <div id="sports" ref={scrollRef()} className={c.category}>
             <SportsHandballIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -78,7 +94,7 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
       case Menus.Iphone:
         return (
-          <div id="iphone" ref={scrollRef()}>
+          <div id="iphone" ref={scrollRef()} className={c.category}>
             <PhoneIphoneIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -86,7 +102,7 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
       case Menus.LongBattery:
         return (
-          <div id="long-battery" ref={scrollRef()}>
+          <div id="long-battery" ref={scrollRef()} className={c.category}>
             <BatteryChargingFullIcon className={c.categoryName} />
             <Typography className={c.categoryName}>{categoryName}</Typography>
           </div>
@@ -99,3 +115,20 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
   return <Box mt={12}>{chooseTitleWithIcon(props.categoryName)}</Box>;
 };
+
+const commutingItems: Item[] = [
+  {
+    name: "ag TWS02R",
+    url: "https://amzn.to/2X9Bce8",
+    imgPath: "/img/ag.jpg",
+    price: 4000,
+    salesPoints: ["msg1", "msg2", "msg3"],
+  },
+  {
+    name: "SONY MDR-M1ST",
+    url: "https://amzn.to/2UJHkbq",
+    imgPath: "/img/sony.png",
+    price: 30000,
+    salesPoints: ["msg1", "msg2", "msg3"],
+  },
+];
