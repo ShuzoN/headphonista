@@ -45,6 +45,10 @@ export const Top = (): JSX.Element => {
       </div>
       <Introduction />
       <CategoryItems categoryName={Menus.Commuting} items={commutingItems} />
+      <CategoryItems categoryName={Menus.Work} items={commutingItems} />
+      <CategoryItems categoryName={Menus.Sports} items={commutingItems} />
+      <CategoryItems categoryName={Menus.Iphone} items={commutingItems} />
+      <CategoryItems categoryName={Menus.LongBattery} items={commutingItems} />
     </>
   );
 };
