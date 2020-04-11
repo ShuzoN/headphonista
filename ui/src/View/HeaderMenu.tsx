@@ -26,25 +26,44 @@ export const HeaderMenu = (): JSX.Element => {
         key={Menus.Commuting}
         component={Link}
         href={"#commuting"}
+        color="inherit"
       >
         <ListItemIcon>
           <TrainIcon />
         </ListItemIcon>
         <ListItemText primary={Menus.Commuting} />
       </ListItem>
-      <ListItem button key={Menus.Work} component={Link} href={"#work"}>
+      <ListItem
+        button
+        key={Menus.Work}
+        component={Link}
+        href={"#work"}
+        color="inherit"
+      >
         <ListItemIcon>
           <ComputerIcon />
         </ListItemIcon>
         <ListItemText primary={Menus.Work} />
       </ListItem>
-      <ListItem button key={Menus.Sports} component={Link} href={"#sports"}>
+      <ListItem
+        button
+        key={Menus.Sports}
+        component={Link}
+        href={"#sports"}
+        color="inherit"
+      >
         <ListItemIcon>
           <SportsHandballIcon />
         </ListItemIcon>
         <ListItemText primary={Menus.Sports} />
       </ListItem>
-      <ListItem button key={Menus.Iphone} component={Link} href={"#iphone"}>
+      <ListItem
+        button
+        key={Menus.Iphone}
+        component={Link}
+        href={"#iphone"}
+        color="inherit"
+      >
         <ListItemIcon>
           <PhoneIphoneIcon />
         </ListItemIcon>
@@ -55,6 +74,7 @@ export const HeaderMenu = (): JSX.Element => {
         key={Menus.LongBattery}
         component={Link}
         href={"#long-battery"}
+        color="inherit"
       >
         <ListItemIcon>
           <BatteryChargingFullIcon />
