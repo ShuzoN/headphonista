@@ -1,6 +1,7 @@
 UI_PORT=8080
+UI_NGINX_PORT=80
 DOCKER=$(shell which docker)
-DOCKER_COMPOSE=UI_PORT=$(UI_PORT) $(shell which docker-compose)
+DOCKER_COMPOSE=UI_PORT=$(UI_PORT) UI_NGINX_PORT=$(UI_NGINX_PORT) $(shell which docker-compose)
 DOCKER_COMPOSE_SERVICES=$(shell cat docker-compose.yml|awk '/^services/,/^network/' | grep -E '^\s{2}\S+' | sed 's/://g' | xargs)
 MAKE=$(shell which make)
 
@@ -12,6 +13,12 @@ server/up:
 
 server/down:
 	$(DOCKER_COMPOSE) down
+
+rebuild: server/down server/up
+
+ui-nginx/rebuild:
+	$(DOCKER_COMPOSE) rm --force --stop ui_nginx
+	$(DOCKER_COMPOSE) up --build -d ui_nginx
 
 ui/rebuild:
 	$(DOCKER_COMPOSE) rm --force --stop ui
