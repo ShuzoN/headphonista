@@ -23,3 +23,9 @@ ui-nginx/rebuild:
 ui/rebuild:
 	$(DOCKER_COMPOSE) rm --force --stop ui
 	$(DOCKER_COMPOSE) up --build -d ui
+
+push: build/image
+	$(DOCKER) push shuzon21/headphonista:latest
+
+build/image:
+	$(DOCKER_COMPOSE) build --pull --no-cache ui_nginx
