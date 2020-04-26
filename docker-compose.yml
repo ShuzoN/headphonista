@@ -1,7 +1,10 @@
 version: "3"
 services:
   ui_nginx:
-    image: nginx:mainline-alpine
+    image: shuzon21/headphonista
+    build:
+      context: ./docker
+      dockerfile: Dockerfile.nginx
     volumes:
       - ./ui/build:/usr/share/nginx/html:ro
     ports:
