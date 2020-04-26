@@ -28,4 +28,8 @@ push: build/image
 	$(DOCKER) push shuzon21/headphonista:latest
 
 build/image:
+	rm -rf ./docker/tmp
+	mkdir ./docker/tmp
+	cp -r ./ui/build ./docker/tmp
 	$(DOCKER_COMPOSE) build --pull --no-cache ui_nginx
+	rm -rf ./docker/tmp
