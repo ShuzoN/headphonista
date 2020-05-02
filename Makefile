@@ -24,7 +24,10 @@ ui/rebuild:
 	$(DOCKER_COMPOSE) rm --force --stop ui
 	$(DOCKER_COMPOSE) up --build -d ui
 
-push: build/image
+ui/build:
+	$(MAKE) -C ui build
+
+push: ui/build build/image
 	$(DOCKER) push shuzon21/headphonista:latest
 
 build/image:
