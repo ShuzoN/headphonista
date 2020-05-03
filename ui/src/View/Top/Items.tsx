@@ -41,6 +41,10 @@ const useStyle = makeStyles((theme) => ({
     margin: theme.spacing(1, 0),
     padding: theme.spacing(1, 0),
   },
+  salesPointText: {
+    fontFeatureSettings: "palt",
+    lineHeight: "2.5rem",
+  },
   itemImage: {
     display: "inline-block",
     verticalAlign: "middle",
@@ -100,7 +104,7 @@ const AmazonItemView = (props: Item): JSX.Element => {
       <Grid item xs={12} className={c.salesPoint}>
         {props.salesPoints.map((v) => {
           return (
-            <Typography variant="body1" key={v}>
+            <Typography variant="body1" key={v} className={c.salesPointText}>
               {v}
             </Typography>
           );
@@ -138,7 +142,7 @@ const ShuzonItemView = (props: Item): JSX.Element => {
       <Grid item xs={12} className={c.salesPoint}>
         {props.salesPoints.map((v) => {
           return (
-            <Typography variant="body1" key={v}>
+            <Typography variant="body1" key={v} className={c.salesPointText}>
               {v}
             </Typography>
           );
