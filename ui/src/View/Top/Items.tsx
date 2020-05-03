@@ -13,8 +13,8 @@ import { Item } from "./Contract";
 const useStyle = makeStyles((theme) => ({
   paper: {
     margin: theme.spacing(2, 1),
-    minWidth: "300px",
-    minHeight: "300px",
+    minWidth: "280px",
+    minHeight: "280px",
     filter: "drop-shadow(0 1mm 0.1rem Gray)",
   },
   headphoneImage: {
