@@ -19,8 +19,8 @@ const useStyle = makeStyles((theme) => ({
   },
   headphoneImage: {
     margin: theme.spacing(4, 1, 1),
-    maxWidth: "90%",
-    maxHeight: "150px",
+    maxWidth: "146px",
+    maxHeight: "146px",
     border: "1px solid LightGray",
     borderRadius: "40px",
   },
@@ -38,7 +38,7 @@ const useStyle = makeStyles((theme) => ({
     verticalAlign: "middle",
   },
   salesPoint: {
-    margin: theme.spacing(1, 0),
+    margin: theme.spacing(3, 0),
     padding: theme.spacing(1, 0),
   },
   salesPointText: {
@@ -48,7 +48,13 @@ const useStyle = makeStyles((theme) => ({
   itemImage: {
     display: "inline-block",
     verticalAlign: "middle",
+    width: "148px",
+    height: "148px",
+  },
+  itemName: {
     margin: theme.spacing(4, 0, 0),
+    display: "inline-block",
+    verticalAlign: "middle",
     width: "148px",
     height: "148px",
   },
@@ -97,7 +103,7 @@ const AmazonItemView = (props: Item): JSX.Element => {
           className={c.headphoneImage}
         />
       </Grid>
-      <Grid item xs={6} className={c.itemImage}>
+      <Grid item xs={6} className={c.itemName}>
         <Typography variant="subtitle1">{props.name}</Typography>
         <Typography variant="h5" className={c.price}>
           {`~¥${props.price}`}
@@ -135,7 +141,7 @@ const ShuzonItemView = (props: Item): JSX.Element => {
           className={c.headphoneImage}
         />
       </Grid>
-      <Grid item xs={6} className={c.itemImage}>
+      <Grid item xs={6} className={c.itemName}>
         <Typography variant="subtitle1">{props.name}</Typography>
         <Typography variant="h5" className={c.price}>
           {`~¥${props.price}`}

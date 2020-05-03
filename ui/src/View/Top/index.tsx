@@ -120,7 +120,7 @@ const commutingItems: Item[] = [
   {
     name: "Anker Soundcore Liberty Neo",
     url: "https://amzn.to/2YfCl4r",
-    imgPath: "/img/anker-neo.jpg",
+    imgPath: "/img/anker-sound-core-neo.jpg",
     price: 5000,
     salesPoints: [
       "アマゾンイヤホンランキング5位",
