@@ -5,10 +5,12 @@ DOCKER_COMPOSE=UI_PORT=$(UI_PORT) UI_NGINX_PORT=$(UI_NGINX_PORT) $(shell which d
 DOCKER_COMPOSE_SERVICES=$(shell cat docker-compose.yml|awk '/^services/,/^network/' | grep -E '^\s{2}\S+' | sed 's/://g' | xargs)
 MAKE=$(shell which make)
 
+.PHONY: docker/tmp logs
+
 logs:
 	$(DOCKER_COMPOSE) logs -f
 
-server/up:
+server/up: docker/tmp
 	$(DOCKER_COMPOSE) up --build  --remove-orphans -d $(DOCKER_COMPOSE_SERVICES)
 
 server/down:
@@ -30,9 +32,10 @@ ui/build:
 push: ui/build build/image
 	$(DOCKER) push shuzon21/headphonista:latest
 
-build/image:
-	rm -rf ./docker/tmp
-	mkdir ./docker/tmp
-	cp -r ./ui/build ./docker/tmp
+docker/tmp:
+	rm -rf ./$@
+	mkdir ./$@
+	cp -r ./ui/build ./$@
+
+build/image: docker/tmp
 	$(DOCKER_COMPOSE) build --pull --no-cache ui_nginx
-	rm -rf ./docker/tmp

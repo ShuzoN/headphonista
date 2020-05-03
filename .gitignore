@@ -1,4 +1,5 @@
 yarn-error.log
 ui/node_modules
 ui/build
+docker/tmp
 
