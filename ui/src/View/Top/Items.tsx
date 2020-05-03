@@ -48,6 +48,9 @@ const useStyle = makeStyles((theme) => ({
   itemImage: {
     display: "inline-block",
     verticalAlign: "middle",
+    margin: theme.spacing(4, 0, 0),
+    width: "148px",
+    height: "148px",
   },
   amazonBestSallerBlock: {
     position: "absolute",
