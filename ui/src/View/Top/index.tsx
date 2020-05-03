@@ -118,17 +118,29 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
 const commutingItems: Item[] = [
   {
-    name: "ag TWS02R",
-    url: "https://amzn.to/2X9Bce8",
-    imgPath: "/img/ag.jpg",
-    price: 4000,
-    salesPoints: ["msg1", "msg2", "msg3"],
+    name: "Anker Soundcore Liberty Neo",
+    url: "https://amzn.to/2YfCl4r",
+    imgPath: "/img/anker-neo.jpg",
+    price: 5000,
+    salesPoints: [
+      "アマゾンイヤホンランキング5位",
+      "ankerは電池の名門メーカー。",
+      "完全防水なので突然の雨も大丈夫",
+      "満充電で5時間聴けるから通勤時は楽々",
+      "音質もよく買って後悔しないメーカーです",
+    ],
   },
   {
-    name: "SONY MDR-M1ST",
-    url: "https://amzn.to/2UJHkbq",
-    imgPath: "/img/sony.png",
-    price: 30000,
-    salesPoints: ["msg1", "msg2", "msg3"],
+    name: "AVIOT TE-D01g",
+    url: "https://amzn.to/2WcCbbz",
+    imgPath: "/img/aviot_te-d01g.png",
+    price: 8500,
+    salesPoints: [
+      "9時間の連続再生で充電が切れる心配ゼロ!",
+      "完全防水でお風呂に落としても壊れません",
+      "超コンパクトなケースだから生活に馴染みやすい",
+      "type C対応なのも嬉しいポイント",
+      "6人以上の知人にお勧めして好評のクオリティ",
+    ],
   },
 ];
