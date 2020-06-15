@@ -113,7 +113,7 @@ const AmazonItemView = (props: Item): JSX.Element => {
       <Grid item xs={12} className={c.salesPoint}>
         {props.salesPoints.map((v) => {
           return (
-            <Typography variant="body1" key={v} className={c.salesPointText}>
+            <Typography variant="body2" key={v} className={c.salesPointText}>
               {v}
             </Typography>
           );
@@ -151,7 +151,7 @@ const ShuzonItemView = (props: Item): JSX.Element => {
       <Grid item xs={12} className={c.salesPoint}>
         {props.salesPoints.map((v) => {
           return (
-            <Typography variant="body1" key={v} className={c.salesPointText}>
+            <Typography variant="body2" key={v} className={c.salesPointText}>
               {v}
             </Typography>
           );
