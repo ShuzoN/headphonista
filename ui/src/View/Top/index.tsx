@@ -45,7 +45,7 @@ export const Top = (): JSX.Element => {
       </div>
       <Introduction />
       <CategoryItems categoryName={Menus.Commuting} items={commutingItems} />
-      <CategoryItems categoryName={Menus.Work} items={commutingItems} />
+      <CategoryItems categoryName={Menus.Work} items={workItems} />
     </>
   );
 };
@@ -117,29 +117,29 @@ const commutingItems: Item[] = [
 
 const workItems: Item[] = [
   {
-    name: "Anker Soundcore Liberty Neo",
-    url: "https://amzn.to/2YfCl4r",
-    imgPath: "/img/anker-sound-core-neo.jpg",
+    name: "Anker Soundcore Life P2",
+    url: "https://amzn.to/30S4vnq",
+    imgPath: "/img/anker_soundcore_life_p2.jpg",
     price: 5000,
     salesPoints: [
-      "アマゾンイヤホンランキング5位",
-      "ankerは電池の名門メーカー。",
+      "アマゾンイヤホンランキング2位",
+      "ankerは電池の名門メーカー",
       "完全防水なので突然の雨も大丈夫",
-      "満充電で5時間聴けるから通勤時は楽々",
-      "音質もよく買って後悔しないメーカーです",
+      "満充電で7時間聴けるから集中作業も余裕",
+      "音質は5000円以下なのに超クリア",
     ],
   },
   {
-    name: "ソニー WF-1000XM3",
-    url: "https://amzn.to/2BlJk2c",
-    imgPath: "/img/sony_wf1000xm3.jpg",
-    price: 24000,
+    name: "ag TWS04K",
+    url: "https://amzn.to/2BgsIJs",
+    imgPath: "/img/ag_tws04k.jpg",
+    price: 15000,
     salesPoints: [
-      "最大6時間連続再生",
-      "現状最強レベルのノイズキャンセリング性能",
-      "電車やバスの騒音をカット",
-      "type C対応なのも嬉しいポイント",
-      "10分充電で90分使えるから通勤にも重宝",
+      "最大9時間まで連続再生が可能",
+      "ケース込みで180時間再生とバケモノ性能",
+      "type C対応+携帯の充電ができるのも嬉しいところ",
+      "もちろん完全防水です(IPX7)",
+      "え？1万円代でこんなに音の良いの出したらだめだって...!",
     ],
   },
 ];
