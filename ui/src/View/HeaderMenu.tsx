@@ -10,9 +10,6 @@ import {
 } from "@material-ui/core";
 import TrainIcon from "@material-ui/icons/Train";
 import ComputerIcon from "@material-ui/icons/Computer";
-import SportsHandballIcon from "@material-ui/icons/SportsHandball";
-import PhoneIphoneIcon from "@material-ui/icons/PhoneIphone";
-import BatteryChargingFullIcon from "@material-ui/icons/BatteryChargingFull";
 import { Menus } from "../Contract";
 
 export const HeaderMenu = (): JSX.Element => {
@@ -44,42 +41,6 @@ export const HeaderMenu = (): JSX.Element => {
           <ComputerIcon />
         </ListItemIcon>
         <ListItemText primary={Menus.Work} />
-      </ListItem>
-      <ListItem
-        button
-        key={Menus.Sports}
-        component={Link}
-        href={"#sports"}
-        color="inherit"
-      >
-        <ListItemIcon>
-          <SportsHandballIcon />
-        </ListItemIcon>
-        <ListItemText primary={Menus.Sports} />
-      </ListItem>
-      <ListItem
-        button
-        key={Menus.Iphone}
-        component={Link}
-        href={"#iphone"}
-        color="inherit"
-      >
-        <ListItemIcon>
-          <PhoneIphoneIcon />
-        </ListItemIcon>
-        <ListItemText primary={Menus.Iphone} />
-      </ListItem>
-      <ListItem
-        button
-        key={Menus.LongBattery}
-        component={Link}
-        href={"#long-battery"}
-        color="inherit"
-      >
-        <ListItemIcon>
-          <BatteryChargingFullIcon />
-        </ListItemIcon>
-        <ListItemText primary={Menus.LongBattery} />
       </ListItem>
     </List>
   );
