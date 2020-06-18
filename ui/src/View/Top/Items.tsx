@@ -18,11 +18,9 @@ const useStyle = makeStyles((theme) => ({
     filter: "drop-shadow(0 1mm 0.1rem Gray)",
   },
   headphoneImage: {
-    margin: theme.spacing(4, 1, 1),
-    maxWidth: "146px",
+    margin: "auto",
+    maxWidth: "100%",
     maxHeight: "146px",
-    border: "1px solid LightGray",
-    borderRadius: "40px",
   },
   price: {
     margin: theme.spacing(1, 4),
@@ -47,8 +45,9 @@ const useStyle = makeStyles((theme) => ({
   },
   itemImage: {
     display: "inline-block",
-    verticalAlign: "middle",
-    width: "148px",
+    margin: theme.spacing(5, 0, 0),
+    verticalAlign: "top",
+    width: "200px",
     height: "148px",
   },
   itemName: {
