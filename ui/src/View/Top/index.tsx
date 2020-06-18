@@ -88,6 +88,35 @@ const CategoryTitle = (props: { categoryName: string }): JSX.Element => {
 
 const commutingItems: Item[] = [
   {
+    name: "Apple AirPods Pro",
+    url: "https://amzn.to/3de8Gwm",
+    imgPath: "/img/apple_airpods_pro.jpg",
+    price: 30000,
+    salesPoints: [
+      "アマゾンイヤホンランキング堂々の第1位",
+      "強力なノイズキャンセリング性能でまるで真空",
+      "iPhoneとの相性が最高近づけるだけでリンクする",
+      "iPhoneと同じケーブルで充電できる",
+      "実は音質もいいんです",
+    ],
+  },
+  {
+    name: "ソニー WF-1000XM3",
+    url: "https://amzn.to/2BlJk2c",
+    imgPath: "/img/sony_wf1000xm3.jpg",
+    price: 24000,
+    salesPoints: [
+      "最大6時間連続再生",
+      "現状イヤホン最強レベルのノイズキャンセリング性能",
+      "電車やバスの騒音をカット",
+      "type C対応なのも嬉しいポイント",
+      "10分充電で90分使えるから通勤にも重宝",
+    ],
+  },
+];
+
+const workItems: Item[] = [
+  {
     name: "Anker Soundcore Liberty Neo",
     url: "https://amzn.to/2YfCl4r",
     imgPath: "/img/anker-sound-core-neo.jpg",
