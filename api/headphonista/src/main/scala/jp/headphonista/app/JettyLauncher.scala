@@ -1,4 +1,4 @@
-package jp.headphonista
+package jp.headphonista.app
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.{DefaultServlet, ServletContextHandler}
 import org.eclipse.jetty.webapp.WebAppContext
