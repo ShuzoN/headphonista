@@ -1,12 +1,16 @@
 # headphonista #
 
+how to lunch api server
+
 ## Build & Run ##
 
 ```sh
-$ cd headphonista
-$ sbt
-> jetty:start
-> browse
+$ make -C ../../ api/rebuild
+
+or
+
+$ java -jar target/scala-2.13/headphonista.jar
+
 ```
 
-If `browse` doesn't launch your browser, manually open [http://localhost:8080/](http://localhost:8080/) in your browser.
+open [http://localhost:8000/](http://localhost:8000/) in your browser.
