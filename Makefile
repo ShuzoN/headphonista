@@ -6,7 +6,7 @@ DOCKER_COMPOSE=API_PORT=$(API_PORT) UI_PORT=$(UI_PORT) UI_NGINX_PORT=$(UI_NGINX_
 DOCKER_COMPOSE_SERVICES=$(shell cat docker-compose.yml|awk '/^services/,/^network/' | grep -E '^\s{2}\S+' | sed 's/://g' | xargs)
 MAKE=$(shell which make)
 
-.PHONY: docker/tmp logs
+.PHONY: docker/tmp logs ui/build
 
 logs:
 	$(DOCKER_COMPOSE) logs -f
