@@ -1,6 +1,5 @@
 SBT=$(shell which sbt)
 
 .PHONY: build
+	$(SBT) assembly
 
-build:
-	$(SBT) package
