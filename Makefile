@@ -1,12 +1,13 @@
 UI_PORT=8080
 API_PORT=8000
 UI_NGINX_PORT=80
+API_NGINX_PORT=8001
 DOCKER=$(shell which docker)
-DOCKER_COMPOSE=API_PORT=$(API_PORT) UI_PORT=$(UI_PORT) UI_NGINX_PORT=$(UI_NGINX_PORT) $(shell which docker-compose)
+DOCKER_COMPOSE=API_PORT=$(API_PORT) UI_PORT=$(UI_PORT) UI_NGINX_PORT=$(UI_NGINX_PORT) API_NGINX_PORT=$(API_NGINX_PORT)  $(shell which docker-compose)
 DOCKER_COMPOSE_SERVICES=$(shell cat docker-compose.yml|awk '/^services/,/^network/' | grep -E '^\s{2}\S+' | sed 's/://g' | xargs)
 MAKE=$(shell which make)
 
-.PHONY: docker/tmp logs
+.PHONY: docker/tmp logs ui/build
 
 logs:
 	$(DOCKER_COMPOSE) logs -f
