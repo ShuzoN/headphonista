@@ -1,6 +1,6 @@
 val ScalatraVersion = "2.7.0"
 
-organization := "jp.headphonista"
+organization := "jp.headphonista"
 
 name := "headphonista"
 
@@ -14,7 +14,7 @@ libraryDependencies ++= Seq(
   "org.scalatra" %% "scalatra" % ScalatraVersion,
   "org.scalatra" %% "scalatra-scalatest" % ScalatraVersion % "test",
   "ch.qos.logback" % "logback-classic" % "1.2.3" % "runtime",
-  "org.eclipse.jetty" % "jetty-webapp" % "9.4.30" % "container",
+  "org.eclipse.jetty" % "jetty-webapp" % "9.4.30.v20200611" % "container",
   "javax.servlet" % "javax.servlet-api" % "3.1.0" % "provided"
 )
 
