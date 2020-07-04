@@ -13,16 +13,14 @@ import { Item } from "./Contract";
 const useStyle = makeStyles((theme) => ({
   paper: {
     margin: theme.spacing(2, 1),
-    minWidth: "300px",
-    minHeight: "300px",
+    minWidth: "280px",
+    minHeight: "280px",
     filter: "drop-shadow(0 1mm 0.1rem Gray)",
   },
   headphoneImage: {
-    margin: theme.spacing(4, 1, 1),
-    maxWidth: "90%",
-    maxHeight: "150px",
-    border: "1px solid LightGray",
-    borderRadius: "40px",
+    margin: "auto",
+    maxWidth: "100%",
+    maxHeight: "146px",
   },
   price: {
     margin: theme.spacing(1, 4),
@@ -38,12 +36,26 @@ const useStyle = makeStyles((theme) => ({
     verticalAlign: "middle",
   },
   salesPoint: {
-    margin: theme.spacing(1, 0),
+    margin: theme.spacing(3, 0),
     padding: theme.spacing(1, 0),
+  },
+  salesPointText: {
+    fontFeatureSettings: "palt",
+    lineHeight: "2.5rem",
   },
   itemImage: {
     display: "inline-block",
+    margin: theme.spacing(5, 0, 0),
+    verticalAlign: "top",
+    width: "200px",
+    height: "148px",
+  },
+  itemName: {
+    margin: theme.spacing(4, 0, 0),
+    display: "inline-block",
     verticalAlign: "middle",
+    width: "148px",
+    height: "148px",
   },
   amazonBestSallerBlock: {
     position: "absolute",
@@ -90,7 +102,7 @@ const AmazonItemView = (props: Item): JSX.Element => {
           className={c.headphoneImage}
         />
       </Grid>
-      <Grid item xs={6} className={c.itemImage}>
+      <Grid item xs={6} className={c.itemName}>
         <Typography variant="subtitle1">{props.name}</Typography>
         <Typography variant="h5" className={c.price}>
           {`~¥${props.price}`}
@@ -100,7 +112,7 @@ const AmazonItemView = (props: Item): JSX.Element => {
       <Grid item xs={12} className={c.salesPoint}>
         {props.salesPoints.map((v) => {
           return (
-            <Typography variant="body1" key={v}>
+            <Typography variant="body2" key={v} className={c.salesPointText}>
               {v}
             </Typography>
           );
@@ -128,7 +140,7 @@ const ShuzonItemView = (props: Item): JSX.Element => {
           className={c.headphoneImage}
         />
       </Grid>
-      <Grid item xs={6} className={c.itemImage}>
+      <Grid item xs={6} className={c.itemName}>
         <Typography variant="subtitle1">{props.name}</Typography>
         <Typography variant="h5" className={c.price}>
           {`~¥${props.price}`}
@@ -138,7 +150,7 @@ const ShuzonItemView = (props: Item): JSX.Element => {
       <Grid item xs={12} className={c.salesPoint}>
         {props.salesPoints.map((v) => {
           return (
-            <Typography variant="body1" key={v}>
+            <Typography variant="body2" key={v} className={c.salesPointText}>
               {v}
             </Typography>
           );
