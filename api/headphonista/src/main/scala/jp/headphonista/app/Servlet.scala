@@ -2,7 +2,7 @@ package jp.headphonista.app
 
 import org.scalatra._
 
-class sServlet extends ScalatraServlet {
+class Servlet extends ScalatraServlet {
 
   get("/") {
     views.html.hello()

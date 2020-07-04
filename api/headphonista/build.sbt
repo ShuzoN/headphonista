@@ -9,6 +9,8 @@ version := "0.1.0-SNAPSHOT"
 scalaVersion := "2.13.3"
 
 resolvers += Classpaths.typesafeReleases
+mainClass in assembly := Some("jp.headphonista.app.Servlet")
+assemblyJarName in assembly := "headphonista.jar"
 
 libraryDependencies ++= Seq(
   "org.scalatra" %% "scalatra" % ScalatraVersion,
