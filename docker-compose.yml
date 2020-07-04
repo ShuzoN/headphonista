@@ -8,7 +8,7 @@ services:
     volumes:
       - ./ui/build:/usr/share/nginx/html:ro
     ports:
-      - ${UI_NGINX_PORT}:80
+      - 127.0.0.1:${UI_NGINX_PORT}:80
     command: sh -c 'nginx -t && nginx -g "daemon off;"'
     networks:
       headphonista:
