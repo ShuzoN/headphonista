@@ -30,7 +30,8 @@ services:
     ports:
       - 127.0.0.1:${API_PORT}:8080
     volumes:
-      - ./api/headphonista/target/webapp:/var/lib/jetty/webapps
+      - ./api/headphonista/target/scala-2.13/headphonista.jar:/var/lib/jetty/webapps
+    command: java -jar /var/lib/jetty/webapps
     networks:
       headphonista:
 
