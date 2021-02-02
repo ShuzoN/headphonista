@@ -7,7 +7,7 @@ NODE_MODULES=./node_modules
 install: 
 	[ -d $(NODE_MODULES) ] || $(YARN) install
 
-build:
+build: install
 	$(YARN) build
 
 run: install

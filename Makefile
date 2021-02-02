@@ -10,7 +10,7 @@ MAKE=$(shell which make)
 logs:
 	$(DOCKER_COMPOSE) logs -f
 
-server/up: docker/tmp
+server/up: docker/tmp ui/build
 	$(DOCKER_COMPOSE) up --build  --remove-orphans -d $(DOCKER_COMPOSE_SERVICES)
 
 server/down:
