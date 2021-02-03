@@ -29,12 +29,16 @@ const useStyles = makeStyles((theme: Theme) =>
     star: {
       color: amber[400],
     },
+    price: {
+      color: red[500],
+    },
   })
 );
 
 export const Item = (): JSX.Element => {
   const c = useStyles();
   const reviewStars = 4.5;
+  const price = 30000;
 
   const StarElements = () => {
     const fullStarCount = Math.floor(reviewStars);
@@ -49,6 +53,14 @@ export const Item = (): JSX.Element => {
     }
 
     return <>{stars}</>;
+  };
+
+  const displayPrice = (price: number) => {
+    const formatter = new Intl.NumberFormat("ja-JP", {
+      style: "currency",
+      currency: "JPY",
+    });
+    return formatter.format(price);
   };
 
   return (
@@ -68,6 +80,11 @@ export const Item = (): JSX.Element => {
           <Grid item xs={12}>
             <Typography variant="body2">
               プロユースの本格音質をご自宅でも手軽に。
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h6" className={c.price}>
+              {displayPrice(price)}
             </Typography>
           </Grid>
         </Grid>
