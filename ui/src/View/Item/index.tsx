@@ -8,6 +8,8 @@ import { Divider } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
 import StarHalfIcon from "@material-ui/icons/StarHalf";
+import red from "@material-ui/core/colors/red";
+import amber from "@material-ui/core/colors/amber";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,13 +27,29 @@ const useStyles = makeStyles((theme: Theme) =>
       background: theme.palette.warning.main,
     },
     star: {
-      color: "#FFCA00",
+      color: amber[400],
     },
   })
 );
 
 export const Item = (): JSX.Element => {
   const c = useStyles();
+  const reviewStars = 4.5;
+
+  const StarElements = () => {
+    const fullStarCount = Math.floor(reviewStars);
+    const hasHalfStar = reviewStars % 1 > 0;
+
+    const stars = [...new Array(fullStarCount)].map((_) => {
+      return <StarIcon className={c.star} />;
+    });
+
+    if (hasHalfStar) {
+      stars.push(<StarHalfIcon className={c.star} />);
+    }
+
+    return <>{stars}</>;
+  };
 
   return (
     <>
@@ -45,11 +63,7 @@ export const Item = (): JSX.Element => {
             <Divider classes={{ root: c.divider }} />
           </Grid>
           <Grid item xs={12}>
-            <StarIcon className={c.star} />
-            <StarIcon className={c.star} />
-            <StarIcon className={c.star} />
-            <StarIcon className={c.star} />
-            <StarHalfIcon className={c.star} />
+            <StarElements />
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body2">
