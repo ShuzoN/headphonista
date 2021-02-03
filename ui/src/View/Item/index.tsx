@@ -11,6 +11,7 @@ import StarHalfIcon from "@material-ui/icons/StarHalf";
 import red from "@material-ui/core/colors/red";
 import amber from "@material-ui/core/colors/amber";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import DirectionsIcon from "@material-ui/icons/Directions";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,9 +38,20 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: theme.spacing(1, 0),
       width: "100%",
       color: "#fff",
-      background: "#FFB21E",
+      background: amber[600],
     },
     buyNowBtnContent: {
+      padding: theme.spacing(0, 1, 0, 0),
+      display: "inline",
+      verticalAlign: "middle",
+    },
+    productPageBtn: {
+      margin: theme.spacing(1, 0),
+      width: "100%",
+      color: "#fff",
+      background: red["A200"],
+    },
+    productPageBtnContent: {
       padding: theme.spacing(0, 1, 0, 0),
       display: "inline",
       verticalAlign: "middle",
@@ -51,7 +63,8 @@ export const Item = (): JSX.Element => {
   const c = useStyles();
   const reviewStars = 4.5;
   const price = 30000;
-  const amazonUrl = "https://amazon.co.jp";
+  const amazonUrl = "https://amzn.to/2YHPkLo";
+  const productPageUrl = "https://www.sony.jp/headphone/products/MDR-M1ST/";
 
   const StarElements = () => {
     const fullStarCount = Math.floor(reviewStars);
@@ -103,7 +116,9 @@ export const Item = (): JSX.Element => {
           <Grid item xs={6}>
             <BuyNowButton url={amazonUrl} />
           </Grid>
-          <Grid item xs={6}></Grid>
+          <Grid item xs={6}>
+            <ProductPageButton url={productPageUrl} />
+          </Grid>
         </Grid>
       </div>
     </>
@@ -134,6 +149,18 @@ const BuyNowButton = (props: { url: string }): JSX.Element => {
       <ShoppingCartOutlinedIcon className={c.buyNowBtnContent} />
       <Typography variant="caption" className={c.buyNowBtnContent}>
         BUY NOW
+      </Typography>
+    </Button>
+  );
+};
+
+const ProductPageButton = (props: { url: string }): JSX.Element => {
+  const c = useStyles();
+  return (
+    <Button className={c.productPageBtn} href={props.url}>
+      <DirectionsIcon className={c.productPageBtnContent} />
+      <Typography variant="caption" className={c.productPageBtnContent}>
+        公式ページ
       </Typography>
     </Button>
   );
