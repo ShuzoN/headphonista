@@ -51,6 +51,11 @@ export const Item = (): JSX.Element => {
             <StarIcon className={c.star} />
             <StarHalfIcon className={c.star} />
           </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body2">
+              プロユースの本格音質をご自宅でも手軽に。
+            </Typography>
+          </Grid>
         </Grid>
       </div>
     </>
