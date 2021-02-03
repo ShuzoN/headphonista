@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { Divider } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
+import StarIcon from "@material-ui/icons/Star";
+import StarHalfIcon from "@material-ui/icons/StarHalf";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     divider: {
       background: theme.palette.warning.main,
+    },
+    star: {
+      color: "#FFCA00",
     },
   })
 );
@@ -38,6 +43,13 @@ export const Item = (): JSX.Element => {
               SONY MDR-M1ST
             </Typography>
             <Divider classes={{ root: c.divider }} />
+          </Grid>
+          <Grid item xs={12}>
+            <StarIcon className={c.star} />
+            <StarIcon className={c.star} />
+            <StarIcon className={c.star} />
+            <StarIcon className={c.star} />
+            <StarHalfIcon className={c.star} />
           </Grid>
         </Grid>
       </div>
