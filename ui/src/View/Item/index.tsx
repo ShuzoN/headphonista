@@ -4,8 +4,7 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import { typography } from "material-ui/styles";
+import { Divider } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -16,8 +15,12 @@ const useStyles = makeStyles((theme: Theme) =>
         marginTop: theme.spacing(2),
       },
     },
-    itemName: {
+    item: {
       margin: theme.spacing(0, 2),
+      textAlign: "left",
+    },
+    divider: {
+      background: theme.palette.warning.main,
     },
   })
 );
@@ -28,13 +31,16 @@ export const Item = (): JSX.Element => {
   return (
     <>
       <ItemBreadcrumbs />
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Typography variant="h6" align="left" className={c.itemName}>
-            SONY MDR-M1ST
-          </Typography>
+      <div className={c.item}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Typography variant="h6" align="left">
+              SONY MDR-M1ST
+            </Typography>
+            <Divider classes={{ root: c.divider }} />
+          </Grid>
         </Grid>
-      </Grid>
+      </div>
     </>
   );
 };
