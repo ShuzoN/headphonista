@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export const Summary = (props: {
+export const Overview = (props: {
   reviewStars: number;
   price: number;
   amazonUrl: string;

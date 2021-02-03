@@ -1,7 +1,7 @@
 import React from "react";
 
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { Summary } from "./Summary";
+import { Overview } from "./Overview";
 import ItemBreadcrumbs from "./ItemBreadcrumbs";
 import Typography from "@material-ui/core/Typography";
 import { Divider, Grid } from "@material-ui/core";
@@ -37,7 +37,7 @@ export const Item = (): JSX.Element => {
             </Typography>
             <Divider classes={{ root: c.divider }} />
           </Grid>
-          <Summary
+          <Overview
             reviewStars={reviewStars}
             price={price}
             amazonUrl={amazonUrl}
