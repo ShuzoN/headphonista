@@ -65,6 +65,7 @@ export const Item = (): JSX.Element => {
   const price = 30000;
   const amazonUrl = "https://amzn.to/2YHPkLo";
   const productPageUrl = "https://www.sony.jp/headphone/products/MDR-M1ST/";
+  const itemName = "SONY MDR-M1ST";
 
   const StarElements = () => {
     const fullStarCount = Math.floor(reviewStars);
@@ -91,12 +92,12 @@ export const Item = (): JSX.Element => {
 
   return (
     <>
-      <ItemBreadcrumbs />
+      <ItemBreadcrumbs itemName={itemName} />
       <div className={c.item}>
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Typography variant="h6" align="left">
-              SONY MDR-M1ST
+              {itemName}
             </Typography>
             <Divider classes={{ root: c.divider }} />
           </Grid>
@@ -125,7 +126,7 @@ export const Item = (): JSX.Element => {
   );
 };
 
-export default function ItemBreadcrumbs() {
+export default function ItemBreadcrumbs(props: { itemName: string }) {
   const c = useStyles();
 
   return (
@@ -135,7 +136,7 @@ export default function ItemBreadcrumbs() {
           <Typography variant="body2">商品一覧</Typography>
         </Link>
         <Typography color="textPrimary" variant="body2">
-          SONY MDR-M1ST
+          {props.itemName}
         </Typography>
       </Breadcrumbs>
     </div>
