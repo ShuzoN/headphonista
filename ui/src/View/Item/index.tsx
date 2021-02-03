@@ -40,12 +40,12 @@ export const Item = (): JSX.Element => {
     const fullStarCount = Math.floor(reviewStars);
     const hasHalfStar = reviewStars % 1 > 0;
 
-    const stars = [...new Array(fullStarCount)].map((_) => {
-      return <StarIcon className={c.star} />;
+    const stars = [...new Array(fullStarCount)].map((_, i) => {
+      return <StarIcon key={`star${i}`} className={c.star} />;
     });
 
     if (hasHalfStar) {
-      stars.push(<StarHalfIcon className={c.star} />);
+      stars.push(<StarHalfIcon key={"halfstar"} className={c.star} />);
     }
 
     return <>{stars}</>;
