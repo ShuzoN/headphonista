@@ -12,6 +12,7 @@ import red from "@material-ui/core/colors/red";
 import amber from "@material-ui/core/colors/amber";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import DirectionsIcon from "@material-ui/icons/Directions";
+import { displayPrice } from "../../utils/price";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,60 +68,17 @@ export const Item = (): JSX.Element => {
   const productPageUrl = "https://www.sony.jp/headphone/products/MDR-M1ST/";
   const itemName = "SONY MDR-M1ST";
 
-  const StarElements = () => {
-    const fullStarCount = Math.floor(reviewStars);
-    const hasHalfStar = reviewStars % 1 > 0;
-
-    const stars = [...new Array(fullStarCount)].map((_, i) => {
-      return <StarIcon key={`star${i}`} className={c.star} />;
-    });
-
-    if (hasHalfStar) {
-      stars.push(<StarHalfIcon key={"halfstar"} className={c.star} />);
-    }
-
-    return <>{stars}</>;
-  };
-
-  const displayPrice = (price: number) => {
-    const formatter = new Intl.NumberFormat("ja-JP", {
-      style: "currency",
-      currency: "JPY",
-    });
-    return formatter.format(price);
-  };
-
   return (
     <>
       <ItemBreadcrumbs itemName={itemName} />
       <div className={c.item}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Typography variant="h6" align="left">
-              {itemName}
-            </Typography>
-            <Divider classes={{ root: c.divider }} />
-          </Grid>
-          <Grid item xs={12}>
-            <StarElements />
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="body2">
-              プロユースの本格音質をご自宅でも手軽に。
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="h6" className={c.price}>
-              {displayPrice(price)}
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <BuyNowButton url={amazonUrl} />
-          </Grid>
-          <Grid item xs={6}>
-            <ProductPageButton url={productPageUrl} />
-          </Grid>
-        </Grid>
+        <Summary
+          reviewStars={reviewStars}
+          price={price}
+          amazonUrl={amazonUrl}
+          productPageUrl={productPageUrl}
+          itemName={itemName}
+        />
       </div>
     </>
   );
@@ -142,6 +100,61 @@ export default function ItemBreadcrumbs(props: { itemName: string }) {
     </div>
   );
 }
+
+const Summary = (props: {
+  reviewStars: number;
+  price: number;
+  amazonUrl: string;
+  productPageUrl: string;
+  itemName: string;
+}): JSX.Element => {
+  const c = useStyles();
+
+  const StarElements = () => {
+    const fullStarCount = Math.floor(props.reviewStars);
+    const hasHalfStar = props.reviewStars % 1 > 0;
+
+    const stars = [...new Array(fullStarCount)].map((_, i) => {
+      return <StarIcon key={`star${i}`} className={c.star} />;
+    });
+
+    if (hasHalfStar) {
+      stars.push(<StarHalfIcon key={"halfstar"} className={c.star} />);
+    }
+
+    return <>{stars}</>;
+  };
+
+  return (
+    <Grid container spacing={3}>
+      <Grid item xs={12}>
+        <Typography variant="h6" align="left">
+          {props.itemName}
+        </Typography>
+        <Divider classes={{ root: c.divider }} />
+      </Grid>
+      <Grid item xs={12}>
+        <StarElements />
+      </Grid>
+      <Grid item xs={12}>
+        <Typography variant="body2">
+          プロユースの本格音質をご自宅でも手軽に。
+        </Typography>
+      </Grid>
+      <Grid item xs={12}>
+        <Typography variant="h6" className={c.price}>
+          {displayPrice(props.price)}
+        </Typography>
+      </Grid>
+      <Grid item xs={6}>
+        <BuyNowButton url={props.amazonUrl} />
+      </Grid>
+      <Grid item xs={6}>
+        <ProductPageButton url={props.productPageUrl} />
+      </Grid>
+    </Grid>
+  );
+};
 
 const BuyNowButton = (props: { url: string }): JSX.Element => {
   const c = useStyles();
