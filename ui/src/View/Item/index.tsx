@@ -4,12 +4,13 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import { Divider } from "@material-ui/core";
+import { Button, Divider } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
 import StarHalfIcon from "@material-ui/icons/StarHalf";
 import red from "@material-ui/core/colors/red";
 import amber from "@material-ui/core/colors/amber";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,6 +33,17 @@ const useStyles = makeStyles((theme: Theme) =>
     price: {
       color: red[500],
     },
+    buyNowBtn: {
+      margin: theme.spacing(1, 0),
+      width: "100%",
+      color: "#fff",
+      background: "#FFB21E",
+    },
+    buyNowBtnContent: {
+      padding: theme.spacing(0, 1, 0, 0),
+      display: "inline",
+      verticalAlign: "middle",
+    },
   })
 );
 
@@ -39,6 +51,7 @@ export const Item = (): JSX.Element => {
   const c = useStyles();
   const reviewStars = 4.5;
   const price = 30000;
+  const amazonUrl = "https://amazon.co.jp";
 
   const StarElements = () => {
     const fullStarCount = Math.floor(reviewStars);
@@ -87,6 +100,10 @@ export const Item = (): JSX.Element => {
               {displayPrice(price)}
             </Typography>
           </Grid>
+          <Grid item xs={6}>
+            <BuyNowButton url={amazonUrl} />
+          </Grid>
+          <Grid item xs={6}></Grid>
         </Grid>
       </div>
     </>
@@ -109,3 +126,15 @@ export default function ItemBreadcrumbs() {
     </div>
   );
 }
+
+const BuyNowButton = (props: { url: string }): JSX.Element => {
+  const c = useStyles();
+  return (
+    <Button className={c.buyNowBtn} href={props.url}>
+      <ShoppingCartOutlinedIcon className={c.buyNowBtnContent} />
+      <Typography variant="caption" className={c.buyNowBtnContent}>
+        BUY NOW
+      </Typography>
+    </Button>
+  );
+};
