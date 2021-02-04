@@ -4,3 +4,4 @@ ui/build
 docker/tmp
 target
 api/target
+node_modules
