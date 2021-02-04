@@ -84,10 +84,10 @@ export const Overview = (props: {
           {displayPrice(props.price)}
         </Typography>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={6} sm={3}>
         <BuyNowButton url={props.amazonUrl} />
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={6} sm={3}>
         <ProductPageButton url={props.productPageUrl} />
       </Grid>
     </>
