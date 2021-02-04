@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
       color: "#fff",
       background: amber[600],
+      "&:hover": {
+        backgroundColor: amber["700"],
+        color: "#FFF",
+      },
     },
     buyNowBtnContent: {
       padding: theme.spacing(0, 1, 0, 0),
@@ -36,6 +40,10 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
       color: "#fff",
       background: red["A200"],
+      "&:hover": {
+        backgroundColor: red["600"],
+        color: "#FFF",
+      },
     },
     productPageBtnContent: {
       padding: theme.spacing(0, 1, 0, 0),
