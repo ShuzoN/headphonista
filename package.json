@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "recharts": "^2.0.4"
+  },
+  "dependencies": {
+    "@types/react": "^17.0.1"
   }
 }
