@@ -8,13 +8,7 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import DirectionsIcon from "@material-ui/icons/Directions";
 import { displayPrice } from "../../utils/price";
 import Typography from "@material-ui/core/Typography";
-import {
-  Radar,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-} from "recharts";
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 
 import red from "@material-ui/core/colors/red";
 import amber from "@material-ui/core/colors/amber";
@@ -134,23 +128,7 @@ const ProductPageButton = (props: { url: string }): JSX.Element => {
   );
 };
 
-const resolution: number = 95;
-const redution: number = 70;
-const quality: number = 90;
-const comfortable: number = 80;
-const soundField: number = 70;
-const portability: number = 40;
-
-export const chartData: ChartData[] = createChartData(
-  resolution,
-  redution,
-  quality,
-  comfortable,
-  soundField,
-  portability
-);
-
-function createChartData(
+export function createChartData(
   resolution: number,
   redution: number,
   quality: number,
@@ -177,7 +155,7 @@ function createChartData(
   ];
 }
 
-type ChartData = {
+export type ChartData = {
   subject: string;
   A: number;
   B: number;

@@ -1,7 +1,12 @@
 import React from "react";
 
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import { chartData, ItemRadarChart, Overview } from "./Overview";
+import {
+  ChartData,
+  createChartData,
+  ItemRadarChart,
+  Overview,
+} from "./Overview";
 import ItemBreadcrumbs from "./ItemBreadcrumbs";
 import Typography from "@material-ui/core/Typography";
 import { Divider, Grid } from "@material-ui/core";
@@ -25,6 +30,22 @@ export const Item = (): JSX.Element => {
   const amazonUrl = "https://amzn.to/2YHPkLo";
   const productPageUrl = "https://www.sony.jp/headphone/products/MDR-M1ST/";
   const itemName = "SONY MDR-M1ST";
+
+  const resolution: number = 95;
+  const redution: number = 70;
+  const quality: number = 90;
+  const comfortable: number = 50;
+  const soundField: number = 70;
+  const portability: number = 20;
+
+  const chartData: ChartData[] = createChartData(
+    resolution,
+    redution,
+    quality,
+    comfortable,
+    soundField,
+    portability
+  );
 
   return (
     <>
