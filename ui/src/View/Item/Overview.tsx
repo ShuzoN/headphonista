@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import { Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
@@ -8,9 +8,17 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import DirectionsIcon from "@material-ui/icons/Directions";
 import { displayPrice } from "../../utils/price";
 import Typography from "@material-ui/core/Typography";
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+} from "recharts";
 
 import red from "@material-ui/core/colors/red";
 import amber from "@material-ui/core/colors/amber";
+import lightBlue from "@material-ui/core/colors/lightBlue";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -123,5 +131,81 @@ const ProductPageButton = (props: { url: string }): JSX.Element => {
         公式ページ
       </Typography>
     </Button>
+  );
+};
+
+const resolution: number = 95;
+const redution: number = 70;
+const quality: number = 90;
+const comfortable: number = 80;
+const soundField: number = 70;
+const portability: number = 40;
+
+export const chartData: ChartData[] = createChartData(
+  resolution,
+  redution,
+  quality,
+  comfortable,
+  soundField,
+  portability
+);
+
+function createChartData(
+  resolution: number,
+  redution: number,
+  quality: number,
+  comfortable: number,
+  soundField: number,
+  portability: number
+) {
+  const createElement = (subject: string, value: number): ChartData => {
+    return {
+      subject: subject,
+      A: value,
+      B: value,
+      fullMark: 150,
+    };
+  };
+
+  return [
+    createElement("細やかさ", resolution),
+    createElement("遮音性", redution),
+    createElement("音質", quality),
+    createElement("つけ心地", comfortable),
+    createElement("音場の広さ", soundField),
+    createElement("携帯性", portability),
+  ];
+}
+
+type ChartData = {
+  subject: string;
+  A: number;
+  B: number;
+  fullMark: number;
+};
+
+export const ItemRadarChart = (props: {
+  name: string;
+  data: ChartData[];
+}): JSX.Element => {
+  return (
+    <RadarChart
+      cx={175}
+      cy={150}
+      outerRadius={100}
+      width={400}
+      height={400}
+      data={props.data}
+    >
+      <PolarGrid />
+      <PolarAngleAxis dataKey="subject" />
+      <Radar
+        name={props.name}
+        dataKey="A"
+        stroke={lightBlue["200"]}
+        fill={lightBlue["100"]}
+        fillOpacity={0.6}
+      />
+    </RadarChart>
   );
 };
