@@ -93,10 +93,8 @@ export const Overview = (props: {
         </Typography>
       </Box>
       <Box mt={2}>
-        <Grid item>
-          <BuyNowButton url={props.amazonUrl} />
-          <ProductPageButton url={props.productPageUrl} />
-        </Grid>
+        <BuyNowButton url={props.amazonUrl} />
+        <ProductPageButton url={props.productPageUrl} />
       </Box>
     </>
   );
