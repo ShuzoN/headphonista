@@ -1,5 +1,5 @@
-import React, { PureComponent } from "react";
-import { Button } from "@material-ui/core";
+import React from "react";
+import { Box, Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import StarIcon from "@material-ui/icons/Star";
@@ -8,11 +8,9 @@ import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 import DirectionsIcon from "@material-ui/icons/Directions";
 import { displayPrice } from "../../utils/price";
 import Typography from "@material-ui/core/Typography";
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 
 import red from "@material-ui/core/colors/red";
 import amber from "@material-ui/core/colors/amber";
-import lightBlue from "@material-ui/core/colors/lightBlue";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -81,24 +79,26 @@ export const Overview = (props: {
 
   return (
     <>
-      <Grid item xs={12}>
-        <StarElements />
-      </Grid>
-      <Grid item xs={12}>
-        <Typography variant="body2">
-          プロユースの本格音質をご自宅でも手軽に。
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography variant="h6" className={c.price}>
-          {displayPrice(props.price)}
-        </Typography>
-      </Grid>
-      <Grid item xs={6} sm={3}>
-        <BuyNowButton url={props.amazonUrl} />
-      </Grid>
-      <Grid item xs={6} sm={3}>
-        <ProductPageButton url={props.productPageUrl} />
+      <Grid item xs={12} sm={6}>
+        <Box mt={2}>
+          <StarElements />
+        </Box>
+        <Box mt={2}>
+          <Typography variant="body2">
+            プロユースの本格音質をご自宅でも手軽に。
+          </Typography>
+        </Box>
+        <Box mt={2}>
+          <Typography variant="h6" className={c.price}>
+            {displayPrice(props.price)}
+          </Typography>
+        </Box>
+        <Box mt={2}>
+          <Grid item>
+            <BuyNowButton url={props.amazonUrl} />
+            <ProductPageButton url={props.productPageUrl} />
+          </Grid>
+        </Box>
       </Grid>
     </>
   );
@@ -125,65 +125,5 @@ const ProductPageButton = (props: { url: string }): JSX.Element => {
         公式ページ
       </Typography>
     </Button>
-  );
-};
-
-export function createChartData(
-  resolution: number,
-  redution: number,
-  quality: number,
-  comfortable: number,
-  soundField: number,
-  portability: number
-) {
-  const createElement = (subject: string, value: number): ChartData => {
-    return {
-      subject: subject,
-      A: value,
-      B: value,
-      fullMark: 150,
-    };
-  };
-
-  return [
-    createElement("細やかさ", resolution),
-    createElement("遮音性", redution),
-    createElement("音質", quality),
-    createElement("つけ心地", comfortable),
-    createElement("音場の広さ", soundField),
-    createElement("携帯性", portability),
-  ];
-}
-
-export type ChartData = {
-  subject: string;
-  A: number;
-  B: number;
-  fullMark: number;
-};
-
-export const ItemRadarChart = (props: {
-  name: string;
-  data: ChartData[];
-}): JSX.Element => {
-  return (
-    <RadarChart
-      cx={175}
-      cy={150}
-      outerRadius={100}
-      width={400}
-      height={400}
-      data={props.data}
-    >
-      <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
-      <Radar
-        name={props.name}
-        dataKey="A"
-        stroke={lightBlue["200"]}
-        fill={lightBlue["100"]}
-        fillOpacity={0.6}
-      />
-    </RadarChart>
   );
 };

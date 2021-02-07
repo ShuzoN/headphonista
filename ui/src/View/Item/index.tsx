@@ -1,15 +1,11 @@
 import React from "react";
 
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
-import {
-  ChartData,
-  createChartData,
-  ItemRadarChart,
-  Overview,
-} from "./Overview";
+import { Overview } from "./Overview";
 import ItemBreadcrumbs from "./ItemBreadcrumbs";
 import Typography from "@material-ui/core/Typography";
 import { Divider, Grid } from "@material-ui/core";
+import { ChartData, createChartData, ItemRadarChart } from "./ItemRadarChart";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -65,7 +61,7 @@ export const Item = (): JSX.Element => {
             productPageUrl={productPageUrl}
             itemName={itemName}
           />
-          <Grid item xs={12}>
+          <Grid item xs={12} sm={6}>
             <ItemRadarChart name="SONY MDR-M1ST" data={chartData} />
           </Grid>
         </Grid>
