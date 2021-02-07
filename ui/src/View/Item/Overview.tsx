@@ -79,27 +79,25 @@ export const Overview = (props: {
 
   return (
     <>
-      <Grid item xs={12} sm={6}>
-        <Box mt={2}>
-          <StarElements />
-        </Box>
-        <Box mt={2}>
-          <Typography variant="body2">
-            プロユースの本格音質をご自宅でも手軽に。
-          </Typography>
-        </Box>
-        <Box mt={2}>
-          <Typography variant="h6" className={c.price}>
-            {displayPrice(props.price)}
-          </Typography>
-        </Box>
-        <Box mt={2}>
-          <Grid item>
-            <BuyNowButton url={props.amazonUrl} />
-            <ProductPageButton url={props.productPageUrl} />
-          </Grid>
-        </Box>
-      </Grid>
+      <Box mt={2}>
+        <StarElements />
+      </Box>
+      <Box mt={2}>
+        <Typography variant="body2">
+          プロユースの本格音質をご自宅でも手軽に。
+        </Typography>
+      </Box>
+      <Box mt={2}>
+        <Typography variant="h6" className={c.price}>
+          {displayPrice(props.price)}
+        </Typography>
+      </Box>
+      <Box mt={2}>
+        <Grid item>
+          <BuyNowButton url={props.amazonUrl} />
+          <ProductPageButton url={props.productPageUrl} />
+        </Grid>
+      </Box>
     </>
   );
 };

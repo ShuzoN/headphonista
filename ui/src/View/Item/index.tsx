@@ -54,13 +54,15 @@ export const Item = (): JSX.Element => {
             </Typography>
             <Divider classes={{ root: c.divider }} />
           </Grid>
-          <Overview
-            reviewStars={reviewStars}
-            price={price}
-            amazonUrl={amazonUrl}
-            productPageUrl={productPageUrl}
-            itemName={itemName}
-          />
+          <Grid item xs={12} sm={6}>
+            <Overview
+              reviewStars={reviewStars}
+              price={price}
+              amazonUrl={amazonUrl}
+              productPageUrl={productPageUrl}
+              itemName={itemName}
+            />
+          </Grid>
           <Grid item xs={12} sm={6}>
             <ItemRadarChart name="SONY MDR-M1ST" data={chartData} />
           </Grid>
