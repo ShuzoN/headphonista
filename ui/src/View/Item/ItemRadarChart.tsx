@@ -13,6 +13,13 @@ const useStyles = makeStyles(() =>
   })
 );
 
+const CHART_XAXIS = 200;
+const CHART_YAXIS = 150;
+const CHART_WIDTH = 400;
+const CHART_HEIGHT = 300;
+const CHART_RADIUS = 100;
+const CHART_OPACITY = 0.6;
+
 export type ChartData = {
   subject: string;
   A: number;
@@ -25,14 +32,15 @@ export const ItemRadarChart = (props: {
   data: ChartData[];
 }): JSX.Element => {
   const c = useStyles();
+
   return (
     <div className={c.chart}>
       <RadarChart
-        cx={200}
-        cy={150}
-        outerRadius={100}
-        width={400}
-        height={300}
+        cx={CHART_XAXIS}
+        cy={CHART_YAXIS}
+        outerRadius={CHART_RADIUS}
+        width={CHART_WIDTH}
+        height={CHART_HEIGHT}
         data={props.data}
       >
         <PolarGrid />
@@ -42,7 +50,7 @@ export const ItemRadarChart = (props: {
           dataKey="A"
           stroke={lightBlue["200"]}
           fill={lightBlue["100"]}
-          fillOpacity={0.6}
+          fillOpacity={CHART_OPACITY}
         />
       </RadarChart>
     </div>
