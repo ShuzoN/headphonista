@@ -1,6 +1,17 @@
 import React from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 import lightBlue from "@material-ui/core/colors/lightBlue";
+import { makeStyles, createStyles } from "@material-ui/core";
+
+const useStyles = makeStyles(() =>
+  createStyles({
+    chart: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  })
+);
 
 export type ChartData = {
   subject: string;
@@ -13,14 +24,9 @@ export const ItemRadarChart = (props: {
   name: string;
   data: ChartData[];
 }): JSX.Element => {
+  const c = useStyles();
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className={c.chart}>
       <RadarChart
         cx={200}
         cy={150}
