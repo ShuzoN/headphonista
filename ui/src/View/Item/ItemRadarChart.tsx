@@ -23,6 +23,8 @@ const CHART_OPACITY = 0.6;
 export type ChartData = {
   subject: string;
   A: number;
+  B: number;
+  fullMark: number;
 };
 
 export const ItemRadarChart = (props: {
@@ -67,6 +69,8 @@ export function createChartData(
     return {
       subject: subject,
       A: value,
+      B: value,
+      fullMark: 150,
     };
   };
 
