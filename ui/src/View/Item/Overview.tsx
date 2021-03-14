@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@material-ui/core";
+import { Box, Button } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import StarIcon from "@material-ui/icons/Star";
@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
       color: "#fff",
       background: amber[600],
+      "&:hover": {
+        backgroundColor: amber["700"],
+        color: "#FFF",
+      },
     },
     buyNowBtnContent: {
       padding: theme.spacing(0, 1, 0, 0),
@@ -36,6 +40,10 @@ const useStyles = makeStyles((theme: Theme) =>
       width: "100%",
       color: "#fff",
       background: red["A200"],
+      "&:hover": {
+        backgroundColor: red["600"],
+        color: "#FFF",
+      },
     },
     productPageBtnContent: {
       padding: theme.spacing(0, 1, 0, 0),
@@ -71,25 +79,23 @@ export const Overview = (props: {
 
   return (
     <>
-      <Grid item xs={12}>
+      <Box mt={2}>
         <StarElements />
-      </Grid>
-      <Grid item xs={12}>
+      </Box>
+      <Box mt={2}>
         <Typography variant="body2">
           プロユースの本格音質をご自宅でも手軽に。
         </Typography>
-      </Grid>
-      <Grid item xs={12}>
+      </Box>
+      <Box mt={2}>
         <Typography variant="h6" className={c.price}>
           {displayPrice(props.price)}
         </Typography>
-      </Grid>
-      <Grid item xs={6}>
+      </Box>
+      <Box mt={2}>
         <BuyNowButton url={props.amazonUrl} />
-      </Grid>
-      <Grid item xs={6}>
         <ProductPageButton url={props.productPageUrl} />
-      </Grid>
+      </Box>
     </>
   );
 };
